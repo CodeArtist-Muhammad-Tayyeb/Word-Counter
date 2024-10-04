@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Words Counter</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>Words Counter</h1>
+    <div class="TextArea">
+      <textarea id="textArea" rows="8" cols="50" placeholder="Type here...">
+      </textarea>
+      <hr />
+      <div class="counter">
+        <p>Words: <span id="words">0</span></p>
+        <p>Sentence: <span id="sentences">0</span></p>
+        <p>Character: <span id="characters">0</span></p>
+        <p>Paraghraph: <span id="paragraphs">0</span></p>
+      </div>
+    </div>
+
+    <script>
+      var textAreaCounter = document.getElementById("textArea");
+
+      textAreaCounter.addEventListener("input", function () {
+
+        const characterCount = document.getElementById("characters");
+        const wordCounter = document.getElementById("words");
+        const sentenceCounter = document.getElementById("sentences");
+        const paragraphCounter = document.getElementById("paragraphs")
+
+        var totaltext = textAreaCounter.value.trim();
+        
+        var totalCharacter = totaltext.length;
+        characterCount.innerHTML = totalCharacter;
+
+        var totalWord = totaltext.split(' ').length;
+        wordCounter.innerHTML = totalWord;
+
+        var totalSentence = totaltext.split('.').length - 1;
+        sentenceCounter.innerHTML = totalSentence;
+         
+        var totalParagraph = totaltext.split('/')
+
+      });
+    </script>
+  </body>
+</html>
